@@ -30,6 +30,20 @@ export default function ManagerLayout({ children }: ManagerLayoutProps) {
               </button>
             </Link>
 
+            {/* Show Applications */}
+            <Link href="/dashboards/hr/applications">
+              <button className="bg-white text-[#1d4ed8] py-2 px-4 rounded-md hover:bg-blue-100 transition duration-300">
+                Show Applications
+              </button>
+            </Link>
+
+            {/* Update Application Status */}
+            <Link href="/dashboards/hr/update-status">
+              <button className="bg-white text-[#1d4ed8] py-2 px-4 rounded-md hover:bg-blue-100 transition duration-300">
+                Update Application Status
+              </button>
+            </Link>
+
             {/* Logout Button */}
             <button
               onClick={() => signOut()}

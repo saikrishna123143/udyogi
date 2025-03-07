@@ -15,7 +15,7 @@ export default function ManagerLayout({ children }: ManagerLayoutProps) {
       <header className="bg-[#1d4ed8] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-3xl font-bold">Manager Dashboard</h1>
-          <nav className="space-x-6">
+          <nav className="space-x-4 flex">
             {/* View Jobs */}
             <Link href="/dashboards/manager/jobs">
               <button className="bg-white text-[#1d4ed8] py-2 px-4 rounded-md hover:bg-blue-100 transition duration-300">
@@ -27,6 +27,20 @@ export default function ManagerLayout({ children }: ManagerLayoutProps) {
             <Link href="/dashboards/manager/users">
               <button className="bg-white text-[#1d4ed8] py-2 px-4 rounded-md hover:bg-blue-100 transition duration-300">
                 View Users
+              </button>
+            </Link>
+
+            {/* Open Applications */}
+            <Link href="/dashboards/manager/applications">
+              <button className="bg-white text-[#1d4ed8] py-2 px-4 rounded-md hover:bg-blue-100 transition duration-300">
+                Open Applications
+              </button>
+            </Link>
+
+            {/* Update Application Status */}
+            <Link href="/dashboards/manager/update-status">
+              <button className="bg-white text-[#1d4ed8] py-2 px-4 rounded-md hover:bg-blue-100 transition duration-300">
+                Update Application Status
               </button>
             </Link>
 

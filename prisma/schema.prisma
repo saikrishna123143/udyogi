@@ -23,6 +23,7 @@ model Job {
   skillset   String
   location   String
   email      String   // Email field for the user creating the job posting
+  applications Application[]
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
@@ -32,4 +33,17 @@ model User {
   email    String  @unique
   password String
   role     String
+}
+model Application {
+  id            String  @id @default(uuid())
+  jobId         Int
+  email         String
+  status        String  @default("Pending")
+  resume        String
+  profileImage  String
+  createdAt     DateTime @default(now())
+
+  job   Job   @relation(fields: [jobId], references: [id])
+
+  @@unique([jobId, email]) // Ensures a user can apply only once per job
 }
