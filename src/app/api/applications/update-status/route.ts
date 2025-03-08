@@ -3,25 +3,35 @@ import prisma from "@/lib/prisma";
 
 export async function PATCH(req: NextRequest) {
   try {
-    const { email, newStatus } = await req.json();
+    const { email, jobId, newStatus } = await req.json();
 
     // Validate input
-    if (!email || !newStatus) {
-      return NextResponse.json({ error: "Missing email or newStatus" }, { status: 400 });
+    if (!email || !jobId || !newStatus) {
+      return NextResponse.json({ error: "Missing email, jobId, or newStatus" }, { status: 400 });
     }
 
     // Find the application
-    const application = await prisma.application.findFirst({
-      where: { email },
+    const application = await prisma.application.findUnique({
+      where: {
+        jobId_email: {
+          jobId: parseInt(jobId),
+          email,
+        },
+      },
     });
 
     if (!application) {
-      return NextResponse.json({ error: "Application not found for the given email" }, { status: 404 });
+      return NextResponse.json({ error: "Application not found for the given email and job ID" }, { status: 404 });
     }
 
     // Update application status
-    const updatedApplication = await prisma.application.updateMany({
-      where: { email },
+    const updatedApplication = await prisma.application.update({
+      where: {
+        jobId_email: {
+          jobId: parseInt(jobId),
+          email,
+        },
+      },
       data: { status: newStatus },
     });
 

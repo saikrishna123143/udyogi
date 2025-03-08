@@ -4,19 +4,20 @@ import { useState } from "react";
 
 export default function UpdateApplicationStatus() {
   const [email, setEmail] = useState("");
+  const [jobId, setJobId] = useState("");
   const [newStatus, setNewStatus] = useState("");
   const [message, setMessage] = useState("");
 
   const handleUpdateStatus = async () => {
-    if (!email || !newStatus) {
-      alert("Please enter an email and a status.");
+    if (!email || !jobId || !newStatus) {
+      alert("Please enter an email, job ID, and a status.");
       return;
     }
 
     const res = await fetch("/api/applications/update-status", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, newStatus }),
+      body: JSON.stringify({ email, jobId, newStatus }),
     });
 
     const data = await res.json();
@@ -38,6 +39,15 @@ export default function UpdateApplicationStatus() {
         placeholder="Enter user email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        className="w-full p-2 border rounded-md mb-4"
+      />
+
+      {/* Input for Job ID */}
+      <input
+        type="text"
+        placeholder="Enter Job ID"
+        value={jobId}
+        onChange={(e) => setJobId(e.target.value)}
         className="w-full p-2 border rounded-md mb-4"
       />
 

@@ -72,6 +72,7 @@ const Dashboard = () => {
         {jobs.map((job) => (
           <div key={job.id} className="p-6 bg-white shadow rounded-lg">
             <h2 className="text-xl font-semibold">{job.jobName}</h2>
+            <p className="text-gray-600">id : {job.id}</p>
             <p className="text-gray-600">{job.company}</p>
             <p className="text-gray-500">{job.role}</p>
             <p className="text-gray-500">Salary: ${job.package}</p>

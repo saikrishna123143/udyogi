@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 const ApplicationStatus = () => {
   const [email, setEmail] = useState('')
+  const [jobId, setJobId] = useState('')
   const [status, setStatus] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -14,7 +15,7 @@ const ApplicationStatus = () => {
     setStatus(null)
 
     try {
-      const response = await fetch(`/api/application-status?email=${email}`)
+      const response = await fetch(`/api/application-status?email=${email}&jobId=${jobId}`)
       const data = await response.json()
 
       if (response.ok) {
@@ -36,9 +37,16 @@ const ApplicationStatus = () => {
         <input
           type="email"
           placeholder="Enter your email"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter Job ID"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          value={jobId}
+          onChange={(e) => setJobId(e.target.value)}
         />
         <button
           onClick={handleCheckStatus}
