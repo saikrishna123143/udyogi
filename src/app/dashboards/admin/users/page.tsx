@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AdminUserManagement() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('user');
   const [message, setMessage] = useState('');
+  const router = useRouter();
 
   const handleCreateUser = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,6 +70,12 @@ export default function AdminUserManagement() {
             Create User
           </button>
         </form>
+        <button 
+          onClick={() => router.push('/dashboards/admin')} 
+          className="mt-4 w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+        >
+          Go to Admin Dashboard
+        </button>
       </div>
     </div>
   );

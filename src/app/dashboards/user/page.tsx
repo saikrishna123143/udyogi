@@ -2,18 +2,21 @@
 
 const AdminPage = () => {
   return (
-    <div className="text-center">
-      <h2 className="text-3xl font-bold mb-6">Welcome to the User Dashboard</h2>
-      <p className="text-lg text-gray-600 mb-6">view the profile and jobs.</p>
-      <div className="space-y-4">
-        <p className="text-xl">Use the navigation bar above to:</p>
-        <ul className="text-lg">
-          <li>- view profile</li>
-          <li>- view jobs</li>
-        </ul>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100 p-6">
+      <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-lg text-center">
+        <h2 className="text-4xl font-extrabold text-gray-800 mb-6">Welcome to the User Dashboard</h2>
+        <p className="text-lg text-gray-600 mb-6">View your profile and jobs effortlessly.</p>
+        
+        <div className="space-y-6">
+          <p className="text-xl font-semibold text-gray-700">Use the navigation bar above to:</p>
+          <ul className="text-lg space-y-2 text-gray-600">
+            <li className="bg-gray-100 p-3 rounded-lg shadow-sm">📂 View Profile</li>
+            <li className="bg-gray-100 p-3 rounded-lg shadow-sm">💼 View Jobs</li>
+          </ul>
+        </div>
       </div>
     </div>
   )
 }
 
-export default AdminPage
+export default AdminPage;

@@ -14,8 +14,15 @@ export default function ManagerLayout({ children }: ManagerLayoutProps) {
       {/* Top Navigation Bar */}
       <header className="bg-[#1d4ed8] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-3xl font-bold">Hr Dashboard</h1>
+          <h1 className="text-3xl font-bold">HR Dashboard</h1>
           <nav className="space-x-6">
+            {/* Navigate to HR Dashboard */}
+            <Link href="/dashboards/hr">
+              <button className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300">
+                HR Dashboard
+              </button>
+            </Link>
+
             {/* View Jobs */}
             <Link href="/dashboards/hr/jobs">
               <button className="bg-white text-[#1d4ed8] py-2 px-4 rounded-md hover:bg-blue-100 transition duration-300">

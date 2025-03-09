@@ -19,6 +19,11 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
             <h1 className="text-3xl font-bold text-white">User Dashboard</h1>
             <nav className="space-x-6 flex items-center">
               {/* Job Postings Link */}
+              <Link href="/dashboards/user">
+              <button className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 transition duration-300">
+                User Dashboard
+              </button>
+            </Link>
               <Link href="/dashboards/user/jobs">
                 <button className="text-[#1877f2] py-2 px-4 rounded-md bg-white hover:bg-[#165eab] transition duration-300">
                   Jobs Opened

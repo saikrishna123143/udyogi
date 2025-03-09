@@ -57,6 +57,15 @@ export default function ManagerLayout({ children }: ManagerLayoutProps) {
 
       {/* Main Content Area */}
       <main className="p-6">{children}</main>
+      
+      {/* Navigate to Manager Dashboard Button */}
+      <div className="text-center mt-4">
+        <Link href="/dashboards/manager">
+          <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">
+            Go to Manager Dashboard
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface User {
   id: string;
@@ -11,6 +12,7 @@ interface User {
 export default function AllUsersPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [error, setError] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -69,6 +71,14 @@ export default function AllUsersPage() {
           ))}
         </tbody>
       </table>
+      <div className="text-center mt-6">
+        <button 
+          onClick={() => router.push('/dashboards/admin')} 
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+        >
+          Go to Admin Dashboard
+        </button>
+      </div>
     </div>
   );
 }
